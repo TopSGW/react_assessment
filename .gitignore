@@ -1,0 +1,8 @@
+backend/src/controllers/reviewController.js
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Lock files can be committed
+# package-lock.json is tracked

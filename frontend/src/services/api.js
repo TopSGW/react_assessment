@@ -6,7 +6,6 @@ const api = axios.create({
   baseURL: API_URL,
 });
 
-// Add token to requests
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
@@ -15,7 +14,6 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Auth API
 export const login = (email, password) =>
   api.post('/auth/login', { email, password });
 
@@ -24,14 +22,12 @@ export const logout = () => {
   localStorage.removeItem('user');
 };
 
-// Products API
 export const getProducts = () =>
   api.get('/products');
 
 export const getProduct = (id) =>
   api.get(`/products/${id}`);
 
-// Cart API
 export const getCart = () =>
   api.get('/cart');
 

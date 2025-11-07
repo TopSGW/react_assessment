@@ -13,7 +13,6 @@ export const CartProvider = ({ children }) => {
     if (isAuthenticated) {
       fetchCart();
     } else {
-      // Load cart from localStorage for non-authenticated users
       const localCart = localStorage.getItem('cart');
       if (localCart) {
         setCart(JSON.parse(localCart));
@@ -45,7 +44,6 @@ export const CartProvider = ({ children }) => {
         throw error;
       }
     } else {
-      // Local cart management
       const existingItem = cart.find(item => item.product._id === product._id);
       let newCart;
 
